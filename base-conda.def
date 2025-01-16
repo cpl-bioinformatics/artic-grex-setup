@@ -1,0 +1,26 @@
+Bootstrap: docker
+From: continuumio/miniconda3
+   
+%files
+    environment.yml
+   
+%environment
+   
+%post
+    # Install system tools
+    apt-get update && apt-get install -y wget curl openssl git build-essential texlive
+    
+    ENV_NAME=$(head -1 environment.yml | cut -d' ' -f2)
+    echo ". /opt/conda/etc/profile.d/conda.sh" >> $APPTAINER_ENVIRONMENT
+    echo "conda activate $ENV_NAME" >> $APPTAINER_ENVIRONMENT
+
+    # init conda
+    . /opt/conda/etc/profile.d/conda.sh
+    conda env create -f environment.yml -p /opt/conda/envs/$ENV_NAME
+
+    # CA certificate needed for dl
+    mkdir -p /etc/pki/tls/certs
+    cp /etc/ssl/certs/ca-certificates.crt /etc/pki/tls/certs/ca-bundle.crt
+   
+%runscript
+    exec "$@"
