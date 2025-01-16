@@ -8,7 +8,7 @@ git clone https://github.com/phac-nml/ncov2019-artic-nf
 
 to your desired project location.
 
-1. Build Singularity containers
+## 1. Build Singularity containers
 
 This repository contains a script, `make-sif.sh`, designed to automate the creation of Singularity containers from `base-conda.def` and environment files.
 
@@ -21,7 +21,7 @@ dd if=/dev/zero of=overlay.img bs=1M count=500 && \
     mkfs.ext3 overlay.img
 ```
 
-2. Modify covid pipeline env
+## 2. Modify covid pipeline env
 
 - add singularity.config to /conf
 - add singularity modification to nextflow.config
@@ -38,6 +38,6 @@ dd if=/dev/zero of=overlay.img bs=1M count=500 && \
     }
 ```
 
-3. Run covid pipeline modified job script
+## 3. Run covid pipeline modified job script
 
 See `covid-job.sh`, modify paths: PROJECT_DIR and DATA_DIR. Singularity cache use work/singularity in pipeline project dir, place containers there too.
