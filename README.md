@@ -45,6 +45,7 @@ dd if=/dev/zero of=overlay.img bs=1M count=500 && \
     }
 ```
 
+- add ncov-config/ and config file for running report generation
 
 ## 3. Run covid pipeline modified job script
 
