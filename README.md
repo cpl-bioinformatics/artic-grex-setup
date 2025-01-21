@@ -6,7 +6,7 @@
 git clone https://github.com/phac-nml/ncov2019-artic-nf
 ```
 
-to your desired project location.
+to your desired project location. Clone this repo too lol.
 
 
 ## 1. Build Singularity containers
