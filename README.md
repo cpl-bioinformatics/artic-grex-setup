@@ -30,7 +30,7 @@ dd if=/dev/zero of=overlay.img bs=1M count=500 && \
 
 ## 2. Modify covid pipeline env
 
-- add singularity.config to /conf
+- add singularity.config to /conf & change the path
 - add singularity modification to nextflow.config
 
 ```
